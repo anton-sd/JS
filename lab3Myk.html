@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генерация чисел в таблице </title>
+ <style type="text/css"> 
+     .normal { width:40px; font-size:1.5em; color:snow;}
+     tr:nth-child(even) {background: brown}
+     tr:nth-child(odd) {background: green}  
+ </style>
+
+ <script type="text/javascript">
+     function RandomizeArray() { return Math.round(Math.random()) - 0.5; }
+     var randomArray = new Array();
+
+     function CreateLottoValues() {
+     var arr = new Array();
+     for (var i=0; i<42; i++) { arr[i] = Math.floor(Math.random()*50)+1; }
+     randomArray = arr.sort(RandomizeArray); 
+     }
+
+     function UpdateTable() {
+     CreateLottoValues();
+     for (var i=0; i<42; i++) {
+     tmp = 'cell'+(i+1);
+     document.getElementById(tmp).innerHTML = randomArray[i]; 
+     }
+     }
+
+     const result = prompt ( "Задайте интервал в секундах" )
+
+     setInterval(function () {{
+     CreateLottoValues();
+     for (var i=0; i<42; i++) {
+     tmp = 'cell'+(i+1);
+     document.getElementById(tmp).innerHTML = randomArray[i]; 
+     }
+     }
+     alert("обновление генерации чисел" ) ; }, result*1000 );
+     
+ </script>
+
+</head>
+<body onload="UpdateTable();">
+ <center>
+ <div id="container">
+ <div id="header"> <h1>Вариант №4</h1> </div>
+ <div id="content">
+
+ <span id="tableSpan">
+  <table border="1" id="lotto">
+   <tr>
+      <th colspan="7"; style="color: sienna; background: yellowgreen;">Матрица</th>
+   </tr>
+
+   <tr>
+      <th class="normal" id="cell1">&nbsp;</th> 
+      <th class="normal" id="cell2">&nbsp;</th>
+      <th class="normal" id="cell3">&nbsp;</th>
+      <th class="normal" id="cell4">&nbsp;</th>
+      <th class="normal" id="cell5">&nbsp;</th>
+      <th class="normal" id="cell6">&nbsp;</th>
+      <th class="normal" id="cell7">&nbsp;</th>
+   </tr>
+ 
+   <tr>
+      <th class="normal" id="cell8">&nbsp;</th>
+      <th class="normal" id="cell9">&nbsp;</th>
+      <th class="normal" id="cell10">&nbsp;</th>
+      <th class="normal" id="cell11">&nbsp;</th>
+      <th class="normal" id="cell12">&nbsp;</th>
+      <th class="normal" id="cell13">&nbsp;</th>
+      <th class="normal" id="cell14">&nbsp;</th>
+   </tr>
+
+   <tr>
+      <th class="normal" id="cell15">&nbsp;</th>
+      <th class="normal" id="cell16">&nbsp;</th>
+      <th class="normal" id="cell17">&nbsp;</th>
+      <th class="normal" id="cell18">&nbsp;</th>
+      <th class="normal" id="cell19">&nbsp;</th>
+      <th class="normal" id="cell20">&nbsp;</th>
+      <th class="normal" id="cell21">&nbsp;</th>
+   </tr>
+
+   <tr>
+      <th class="normal" id="cell22">&nbsp;</th>
+      <th class="normal" id="cell23">&nbsp;</th>
+      <th class="normal" id="cell24">&nbsp;</th>
+      <th class="normal" id="cell25">&nbsp;</th>
+      <th class="normal" id="cell26">&nbsp;</th>
+      <th class="normal" id="cell27">&nbsp;</th>
+      <th class="normal" id="cell28">&nbsp;</th>
+   </tr>
+ 
+   <tr> 
+      <th class="normal" id="cell29">&nbsp;</th>
+      <th class="normal" id="cell30">&nbsp;</th>
+      <th class="normal" id="cell31">&nbsp;</th>
+      <th class="normal" id="cell32">&nbsp;</th>
+      <th class="normal" id="cell33">&nbsp;</th>
+      <th class="normal" id="cell34">&nbsp;</th>
+      <th class="normal" id="cell35">&nbsp;</th>
+    </tr>
+
+   <tr>
+      <th class="normal" id="cell36">&nbsp;</th>
+      <th class="normal" id="cell37">&nbsp;</th>
+      <th class="normal" id="cell38">&nbsp;</th>
+      <th class="normal" id="cell39">&nbsp;</th>
+      <th class="normal" id="cell40">&nbsp;</th>
+      <th class="normal" id="cell41">&nbsp;</th>
+      <th class="normal" id="cell42">&nbsp;</th>
+   </tr>
+  </table>
+ </span>
+
+ <input type="button" value="Генерация чисел" id="buttonId" onclick="UpdateTable();" />
+</div>
+</center>
+</body>
+</html>
+
+
